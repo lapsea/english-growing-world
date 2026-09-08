@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Nunito', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, sans-serif;
+  }
+  body {
+    @apply bg-paper text-ink antialiased;
+  }
+  ::selection {
+    background: #ffd429;
+    color: #171717;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Baloo 2', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', system-ui, sans-serif;
+  }
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f7f4ec;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #171717;
+    border-radius: 8px;
+    border: 3px solid #f7f4ec;
+  }
+}
+
+@layer components {
+  /* —— 积木风基础卡片 —— */
+  .nbr {
+    @apply bg-white border-[2.5px] border-ink rounded-nbr shadow-hard;
+  }
+  .nbr-flat {
+    @apply bg-white border-[2.5px] border-ink rounded-nbr;
+  }
+  .nbr-hover {
+    @apply transition-all duration-150 ease-out;
+  }
+  .nbr-hover:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0 0 #171717;
+  }
+  .nbr-hover:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 0 #171717;
+  }
+
+  /* —— 按钮 —— */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-bold border-[2.5px] border-ink rounded-2xl shadow-hard-xs select-none;
+    transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 3px 3px 0 0 #171717;
+  }
+  .btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 0.5px 0.5px 0 0 #171717;
+  }
+  .btn:disabled {
+    @apply opacity-40 pointer-events-none;
+  }
+  .btn-primary {
+    @apply bg-brand text-ink;
+  }
+  .btn-secondary {
+    @apply bg-white text-ink;
+  }
+  .btn-dark {
+    @apply bg-ink text-white;
+  }
+  .btn-coral {
+    @apply bg-coral text-white;
+  }
+  .btn-sm {
+    @apply px-3 py-1.5 text-sm;
+  }
+  .btn-md {
+    @apply px-5 py-2.5;
+  }
+  .btn-lg {
+    @apply px-7 py-3.5 text-lg;
+  }
+
+  /* —— 标签 chip —— */
+  .chip {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full border-2 border-ink text-xs font-bold bg-white;
+  }
+  .chip-active {
+    @apply bg-ink text-brand;
+  }
+
+  /* —— 输入 —— */
+  .field {
+    @apply w-full bg-white border-[2.5px] border-ink rounded-2xl px-4 py-2.5 font-semibold text-ink placeholder:text-neutral-400 focus:outline-none focus:ring-4 focus:ring-brand/60 transition;
+  }
+
+  /* —— 荧光笔标题 —— */
+  .marker {
+    background-image: linear-gradient(to top, #ffd429 38%, transparent 38%);
+  }
+
+  /* —— 入场动画 —— */
+  .reveal {
+    opacity: 0;
+    animation: rise-in 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+  .d1 { animation-delay: 0.04s; }
+  .d2 { animation-delay: 0.09s; }
+  .d3 { animation-delay: 0.14s; }
+  .d4 { animation-delay: 0.19s; }
+  .d5 { animation-delay: 0.24s; }
+  .d6 { animation-delay: 0.29s; }
+  .d7 { animation-delay: 0.34s; }
+  .d8 { animation-delay: 0.39s; }
+
+  @keyframes rise-in {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .pop {
+    animation: pop-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+  @keyframes pop-in {
+    from {
+      opacity: 0;
+      transform: scale(0.92);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* —— 点阵纹理 —— */
+  .dot-grid {
+    background-image: radial-gradient(#171717 1.1px, transparent 1.1px);
+    background-size: 26px 26px;
+  }
+
+  /* —— 表格 —— */
+  .tbl th {
+    @apply bg-ink text-white text-left font-bold px-4 py-3 text-sm whitespace-nowrap;
+  }
+  .tbl th:first-child {
+    @apply rounded-tl-2xl;
+  }
+  .tbl th:last-child {
+    @apply rounded-tr-2xl;
+  }
+  .tbl td {
+    @apply px-4 py-3 border-t-2 border-ink/10 text-sm font-semibold align-middle;
+  }
+  .tbl tr:hover td {
+    @apply bg-brand/20;
+  }
+
+  /* —— 隐藏滚动条（侧边栏导航等窄容器，避免滚动条挤压内容宽度） —— */
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
