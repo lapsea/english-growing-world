@@ -5,9 +5,9 @@ import { Card, colorBG } from '../components/ui'
 import type { Role } from '../types'
 
 const ROLE_CARDS: { role: Role; label: string; desc: string; icon: React.ReactNode; color: string }[] = [
-  { role: 'teacher', label: '教师端 · 林晚晴', desc: '管理班级、布置作业、批改作文、查看学情与排行，兼校务管理', icon: <BookOpenText size={26} />, color: 'bg-lav' },
-  { role: 'student', label: '学生端 · 陈乐乐', desc: '学单词、练听力、读文章、写作文、刷挑战、玩小游戏', icon: <GraduationCap size={26} />, color: 'bg-brand' },
-  { role: 'parent', label: '家长端 · 陈大民', desc: '查看孩子学习概览、时长、成绩、薄弱点与每周报告', icon: <Users size={26} />, color: 'bg-ice' },
+  { role: 'teacher', label: '教师端', desc: '管理班级、布置作业、批改作文、查看学情与排行，兼校务管理', icon: <BookOpenText size={26} />, color: 'bg-lav' },
+  { role: 'student', label: '学生端', desc: '学单词、练听力、读文章、写作文、刷挑战、玩小游戏', icon: <GraduationCap size={26} />, color: 'bg-brand' },
+  { role: 'parent', label: '家长端', desc: '查看孩子学习概览、时长、成绩、薄弱点与每周报告', icon: <Users size={26} />, color: 'bg-ice' },
 ]
 
 export function LoginPage() {
